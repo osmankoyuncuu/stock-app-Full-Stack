@@ -7,7 +7,6 @@ import {
   registerSuccess,
   fetchFail,
 } from "../features/authSlice";
-
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
@@ -24,7 +23,6 @@ const useAuthCalls = () => {
         `${BASE_URL}account/auth/login/`,
         userInfo
       );
-
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login performed");
       navigate("/stock");

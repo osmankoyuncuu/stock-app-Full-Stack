@@ -2,14 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const stockSlice = createSlice({
   name: "stock",
-
   initialState: {
-    purchases: null,
+    purchase: null,
     sales: null,
-    products: null,
-    brands: null,
     firms: null,
     categories: null,
+    brands: null,
+    products: null,
     loading: false,
     error: false,
   },
