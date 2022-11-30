@@ -1,29 +1,27 @@
-import * as React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import MenuListItems from "../components/MenuListItems";
+import { useState } from "react";
 import { blueGrey } from "@mui/material/colors";
 import useAuthCalls from "../hooks/useAuthCalls";
+import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const drawerWidth = 200;
-
 function Dashboard(props) {
-  const { currentUser } = useSelector((state) => state.auth);
-  const { logout } = useAuthCalls();
-
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { logout } = useAuthCalls();
+  const { currentUser } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -32,7 +30,6 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Divider />
       <MenuListItems />
     </div>
   );
@@ -60,7 +57,13 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ cursor: "pointer", flexGrow: 1 }}
+            onClick={() => navigate("/stock")}
+          >
             Stock App
           </Typography>
           {currentUser && (
@@ -75,14 +78,13 @@ function Dashboard(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
@@ -132,4 +134,9 @@ function Dashboard(props) {
     </Box>
   );
 }
+
+Dashboard.propTypes = {
+  window: PropTypes.func,
+};
+
 export default Dashboard;
