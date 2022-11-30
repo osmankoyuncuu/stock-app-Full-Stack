@@ -1,14 +1,13 @@
-// import { axiosWithToken } from "../service/axiosInstance";
 import { useDispatch } from "react-redux";
-import { fetchFail, fetchStart, getSuccess } from "../features/stockSlice";
+import { fetchStart, fetchFail, getSuccess } from "../features/stockSlice";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import useAxios from "./useAxios";
-import { toastSuccessNotify, toastErrorNotify } from "../helper/ToastNotify";
 
 const useStockCalls = () => {
-  const dispatch = useDispatch();
   const { axiosWithToken } = useAxios();
+  const dispatch = useDispatch();
 
-  //!------------- GET CALLS ----------------
+  //!----------------GET CALLS------------------
   const getStockData = async (url) => {
     dispatch(fetchStart());
     try {
@@ -20,10 +19,7 @@ const useStockCalls = () => {
     }
   };
 
-  const getFirms = () => getStockData("firms");
-  const getSales = () => getStockData("sales");
-
-  //!------------- DELETE CALLS ----------------
+  //!----------------DELETE CALLS------------------
   const deleteStockData = async (url, id) => {
     try {
       await axiosWithToken.delete(`stock/${url}/${id}/`);
@@ -35,9 +31,30 @@ const useStockCalls = () => {
     }
   };
 
-  const deleteFirm = (id) => deleteStockData("firms", id);
+  //!----------------POST CALLS------------------
+  const postStockData = async (url, info) => {
+    try {
+      await axiosWithToken.post(`stock/${url}/`, info);
+      toastSuccessNotify(`${url} successfuly added`);
+      getStockData(url);
+    } catch (error) {
+      console.log(error);
+      toastErrorNotify(`${url} can not be added`);
+    }
+  };
+  //!----------------PUT CALLS------------------
+  const putStockData = async (url, info) => {
+    try {
+      await axiosWithToken.put(`stock/${url}/${info.id}/`, info);
+      toastSuccessNotify(`${url} successfuly updated`);
+      getStockData(url);
+    } catch (error) {
+      console.log(error);
+      toastErrorNotify(`${url} can not be updated`);
+    }
+  };
 
-  return { getFirms, getSales, deleteFirm };
+  return { getStockData, deleteStockData, postStockData, putStockData };
 };
 
 export default useStockCalls;
