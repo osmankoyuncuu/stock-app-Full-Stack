@@ -45,6 +45,7 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
             variant="outlined"
             type="text"
             fullWidth
+            required
             value={info?.name}
             onChange={handleChange}
           />
@@ -54,10 +55,11 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
             variant="outlined"
             type="url"
             fullWidth
+            required
             value={info?.image}
             onChange={handleChange}
           />
-          <Button type="submit" variant="contained" fullWidth>
+          <Button type="submit" variant="contained" fullWidth sx={{ p: 1.5 }}>
             Save Brand
           </Button>
         </Box>
