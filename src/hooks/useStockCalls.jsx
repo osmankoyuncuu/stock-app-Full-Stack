@@ -1,5 +1,10 @@
 import { useDispatch } from "react-redux";
-import { fetchStart, fetchFail, getSuccess } from "../features/stockSlice";
+import {
+  fetchStart,
+  fetchFail,
+  getSuccess,
+  getProCatBrandsSuccess,
+} from "../features/stockSlice";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import useAxios from "./useAxios";
 
@@ -16,6 +21,22 @@ const useStockCalls = () => {
     } catch (error) {
       dispatch(fetchFail());
       console.log(error);
+    }
+  };
+  const getProCatBrands = async () => {
+    dispatch(fetchStart());
+    try {
+      const [products, categories, brands] = await Promise.all([
+        axiosWithToken.get("stock/products/"),
+        axiosWithToken.get("stock/categories/"),
+        axiosWithToken.get("stock/brands/"),
+      ]);
+      dispatch(
+        getProCatBrandsSuccess([products?.data, categories?.data, brands?.data])
+      );
+    } catch (error) {
+      console.log(error);
+      dispatch(fetchFail());
     }
   };
 
@@ -54,7 +75,13 @@ const useStockCalls = () => {
     }
   };
 
-  return { getStockData, deleteStockData, postStockData, putStockData };
+  return {
+    getStockData,
+    getProCatBrands,
+    deleteStockData,
+    postStockData,
+    putStockData,
+  };
 };
 
 export default useStockCalls;
