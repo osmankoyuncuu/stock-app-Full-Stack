@@ -21,9 +21,7 @@ export default function ProductModal({ open, setOpen, info, setInfo }) {
       brand_id: "",
     });
   };
-  console.log(categories);
-  console.log(brands);
-  console.log(info);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
