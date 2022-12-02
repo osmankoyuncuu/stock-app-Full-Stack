@@ -3,6 +3,15 @@ export const flexCenter = {
   justifyContent: "center",
   alignItems: "center",
   gap: "1rem",
+  flexDirection: { xs: "column", sm: "row" },
+};
+export const flexCenterTable = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: ".2rem",
+  cursor: "pointer",
+  "&:hover": { color: "red" },
 };
 export const flexCenterColumn = {
   display: "flex",

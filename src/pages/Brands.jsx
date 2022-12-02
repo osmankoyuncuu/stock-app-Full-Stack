@@ -18,7 +18,6 @@ const Brands = () => {
   });
   const { getStockData } = useStockCalls();
   const { brands } = useSelector((state) => state.stock);
-  console.log(brands);
   useEffect(() => {
     getStockData("brands");
   }, []);
