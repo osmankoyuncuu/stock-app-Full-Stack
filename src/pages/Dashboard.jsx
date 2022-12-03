@@ -11,7 +11,7 @@ import MenuListItems from "../components/MenuListItems";
 import { useState } from "react";
 import { blueGrey } from "@mui/material/colors";
 import useAuthCalls from "../hooks/useAuthCalls";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import { Outlet, useNavigate } from "react-router-dom";
 

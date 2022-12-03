@@ -28,10 +28,7 @@ const ProductTable = ({
             <TableCell align="center">#</TableCell>
             <TableCell align="center">Category</TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("brand", "text")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("brand")}>
                 <Box>Brand</Box>
                 {columns?.brand === 1 ? (
                   <VerticalAlignBottomIcon />
@@ -41,10 +38,7 @@ const ProductTable = ({
               </Box>
             </TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("name", "text")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("name")}>
                 <Box>Name</Box>
                 {columns?.name === 1 ? (
                   <VerticalAlignBottomIcon />
@@ -54,10 +48,7 @@ const ProductTable = ({
               </Box>
             </TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("stock", "number")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("stock")}>
                 <Box>Stock</Box>
                 {columns?.stock === 1 ? (
                   <VerticalAlignBottomIcon />

@@ -41,3 +41,9 @@ export const modalStyle = {
   gap: "1rem",
   borderRadius: ".5rem",
 };
+export const flexKpiCard = {
+  display: "flex",
+  justifyContent: "start",
+  alignItems: "center",
+  gap: "3rem",
+};

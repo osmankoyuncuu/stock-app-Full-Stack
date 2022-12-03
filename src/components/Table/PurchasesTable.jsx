@@ -29,25 +29,10 @@ const PurchasesTable = ({
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("date", "date")}
-              >
-                <Box>Date</Box>
-                {columns?.date === 1 ? (
-                  <VerticalAlignBottomIcon />
-                ) : (
-                  <VerticalAlignTopIcon />
-                )}
-              </Box>
-            </TableCell>
+            <TableCell align="center">Date</TableCell>
             <TableCell align="center">Category</TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("firm", "text")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("firm")}>
                 <Box>Firm</Box>
                 {columns?.firm === 1 ? (
                   <VerticalAlignBottomIcon />
@@ -57,10 +42,7 @@ const PurchasesTable = ({
               </Box>
             </TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("brand", "text")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("brand")}>
                 <Box>Brand</Box>
                 {columns?.brand === 1 ? (
                   <VerticalAlignBottomIcon />
@@ -70,10 +52,7 @@ const PurchasesTable = ({
               </Box>
             </TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("product", "text")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("product")}>
                 <Box>Product</Box>
                 {columns?.product === 1 ? (
                   <VerticalAlignBottomIcon />
@@ -83,10 +62,7 @@ const PurchasesTable = ({
               </Box>
             </TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("quantity", "number")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("quantity")}>
                 <Box>Quantity</Box>
                 {columns?.quantity === 1 ? (
                   <VerticalAlignBottomIcon />
@@ -96,10 +72,7 @@ const PurchasesTable = ({
               </Box>
             </TableCell>
             <TableCell align="center">
-              <Box
-                sx={flexCenterTable}
-                onClick={() => handleSort("price", "number")}
-              >
+              <Box sx={flexCenterTable} onClick={() => handleSort("price")}>
                 <Box>Amount</Box>
                 {columns?.price === 1 ? (
                   <VerticalAlignBottomIcon />
@@ -111,7 +84,7 @@ const PurchasesTable = ({
             <TableCell align="center">
               <Box
                 sx={flexCenterTable}
-                onClick={() => handleSort("price_total", "number")}
+                onClick={() => handleSort("price_total")}
               >
                 <Box>Amount Total</Box>
                 {columns?.price_total === 1 ? (
