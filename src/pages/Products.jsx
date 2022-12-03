@@ -30,7 +30,6 @@ const Products = () => {
     products,
     columnObj
   );
-  console.log(sortedData);
   const {
     setSelectedOne,
     setSelectedTwo,

@@ -22,7 +22,7 @@ export default function SelectModal({
           label={label}
           name={valueName}
           onChange={handleChange}
-          defaultValue=""
+          defaultValue={info[valueName] || ""}
         >
           {data?.map((item) => (
             <MenuItem key={item?.id} value={item?.id}>

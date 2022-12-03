@@ -7,8 +7,7 @@ import image from "../assets/result.svg";
 import Grid from "@mui/material/Grid";
 import RegisterForm, { registerSchema } from "../components/RegisterForm";
 import { Link } from "react-router-dom";
-import { Box } from "@mui/material";
-
+import Box from "@mui/material/Box";
 import useAuthCalls from "../hooks/useAuthCalls";
 
 const Register = () => {
