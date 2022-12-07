@@ -1,12 +1,4 @@
-# Redux Toolkit Ornegi
-
-## `Kurulum`
-
-```
-npm install veya yarn
-```
-
-## `Kullanilan Kutuphaneler`
+## `Libraries Used`
 
 - `@reduxjs/toolkit`
 - `react-redux`
