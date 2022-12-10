@@ -1,8 +1,4 @@
-## Check The Live Website ➡️ [Live Website]()
-
-## Animation of the Website
-
-![image](./stock-app.gif)
+## Check The Live Website ➡️ [Live Website]("https://stock-app-gules.vercel.app/")
 
 ## Description
 
@@ -32,33 +28,50 @@ Project aims to create a Stock App.
     │    │            ├── ProductTable.jsx
     │    │            ├── PurchasesTable.jsx
     │    │            └── SalesTable.jsx
-    │    │       ├── Footer.jsx
-    │    │       ├── MovieCard.jsx
-    │    │       ├── Navbar.jsx
-    │    │       └── Search.jsx
-    │    ├── context
-    │    │       ├── LoginContext.jsx
-    │    │       └── MovieCardContext.jsx
+    │    │       ├── BrandCard.jsx
+    │    │       ├── Charts.jsx
+    │    │       ├── FirmCard.jsx
+    │    │       ├── KpiCards.jsx
+    │    │       ├── LoginForm.jsx
+    │    │       ├── MenuListItems.jsx
+    │    │       ├── MutliSelect.jsx
+    │    │       └── RegisterForm.jsx
+    │    ├── features
+    │    │       ├── authSlice.jsx
+    │    │       └── stockSlice.jsx
+    │    ├── helper
+    │    │       └── ToastNotify.js
+    │    ├── hooks
+    │    │       ├── useAuthCalls.jsx
+    │    │       ├── useAxios.jsx
+    │    │       ├── useMultiSelect.jsx
+    │    │       ├── useSortColumn.jsx
+    │    │       └── useStockCalls.jsx
     │    ├── pages
+    │    │       ├── Brand.jsx
+    │    │       ├── Dashboard.jsx
+    │    │       ├── Firm.jsx
     │    │       ├── Home.jsx
     │    │       ├── Login.jsx
-    │    │       ├── MovieDetail.jsx
-    │    │       └── Register.jsx
+    │    │       ├── Products.jsx
+    │    │       ├── Purchases.jsx
+    │    │       ├── Register.jsx
+    │    │       └── Sales.jsx
     │    ├── router
     │    │       ├── AppRouter.jsx
     │    │       └── PrivateRouter.jsx
+    │    ├── styles
+    │    │       └── globalStyle.jsx
     │    ├── App.js
-    │    ├── index.css
     │    └── index.js
     ├── .gitignore
-    ├── movie-app.gif
     ├── package.json
     ├── README.md
     └── yarn.lock
 
 ## Overview
 
-I mastered HTML, CSS, JS, React, Material UI and Firebase features in this project. You can see the visual representation of the website above.
+I mastered HTML, CSS, JS, React, Material UI, Tremor, Redux Toolkit, Firebase and custom hook features in this project. You can see the visual representation of the website above.
 
 # Getting Started with Create React App
 
