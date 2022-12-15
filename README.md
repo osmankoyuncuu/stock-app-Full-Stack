@@ -71,7 +71,7 @@ Project aims to create a Stock App.
 
 ## Overview
 
-I mastered HTML, CSS, JS, React, Material UI, Tremor, Redux Toolkit, Firebase and custom hook features in this project. You can see the visual representation of the website above.
+I mastered HTML, CSS, React, Material UI, Tremor, Redux Toolkit, Firebase and custom hook features in this project. You can see the visual representation of the website above.
 
 # Getting Started with Create React App
 
