@@ -7,6 +7,7 @@ from .models import (
     Purchases,
     Sales
 )
+import datetime
 
 class CategorySerializer(serializers.ModelSerializer):
     product_count = serializers.SerializerMethodField()
@@ -99,15 +100,11 @@ class PurchasesSerializer(serializers.ModelSerializer):
         )
         
     
-    # def get_category(self, obj):
-    #     product = Product.objects.get(id=obj.product_id)
-    #     return Category.objects.get(id=product.category_id).name
+    def get_category(self, obj):
+        return obj.product.category.name
     
-    #def get_category(self, obj):
-    #    return obj.product.category.name
+    def get_time_hour(self, obj):
+        return datetime.datetime.strftime(obj.createds, "%H:%M")
     
-    #def get_time_hour(self, obj):
-    #    return datetime.datetime.strftime(obj.createds, "%H:%M")
-    
-    #def get_createds(self, obj):
-    #    return datetime.datetime.strftime(obj.createds, "%d,%m,%Y")
+    def get_createds(self, obj):
+        return datetime.datetime.strftime(obj.createds, "%d/%m/%Y")
