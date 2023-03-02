@@ -12,23 +12,27 @@ import { flexKpiCard } from "../styles/globalStyle";
 
 const KpiCards = () => {
   const { sales, purchases } = useSelector((state) => state.stock);
-  console.log(sales);
-  console.log(purchases);
 
   const total = (data) =>
     data
       ?.map((item) => Number(item?.price_total))
       .reduce((acc, val) => acc + val, 0);
 
-  const profit = (sales, purhases) => {
+  const profit = (sales, purchases) => {
     const filterDataId = sales?.map((item) => item.product_id);
     const filterPurh = purchases?.filter((item) =>
       filterDataId?.includes(item.product_id)
     );
-    console.log(filterPurh);
+    const profitResult = sales?.map(
+      (item) =>
+        (item?.price -
+          filterPurh
+            ?.filter((purh) => purh?.product_id === item?.product_id)
+            .map((items) => items?.price)) *
+        item?.quantity
+    );
+    return profitResult?.reduce((acc, val) => acc + val, 0);
   };
-  profit(sales);
-
   const data = [
     {
       title: "sales",
@@ -39,7 +43,7 @@ const KpiCards = () => {
     },
     {
       title: "profit",
-      metric: total(sales) - total(purchases) || "",
+      metric: profit(sales, purchases) || "",
       icon: <ShoppingCartIcon />,
       color: pink[900],
       bgColor: pink[100],

@@ -24,7 +24,6 @@ const SalesTable = ({
   open,
 }) => {
   const { deleteStockData } = useStockCalls();
-  console.log(sortedData);
 
   return (
     <TableContainer component={Paper} sx={{ mt: 3 }} elevation={10}>
