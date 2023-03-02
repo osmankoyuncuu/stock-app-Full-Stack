@@ -24,6 +24,7 @@ const SalesTable = ({
   open,
 }) => {
   const { deleteStockData } = useStockCalls();
+  console.log(sortedData);
 
   return (
     <TableContainer component={Paper} sx={{ mt: 3 }} elevation={10}>
@@ -100,7 +101,7 @@ const SalesTable = ({
                 <TableCell align="center" component="th" scope="row">
                   {sales?.createds}
                 </TableCell>
-                <TableCell align="center">{sales?.category[0]?.name}</TableCell>
+                <TableCell align="center">{sales?.category}</TableCell>
                 <TableCell align="center">{sales?.brand}</TableCell>
                 <TableCell align="center">{sales?.product}</TableCell>
                 <TableCell align="center">{sales?.quantity}</TableCell>

@@ -23,11 +23,13 @@ const useAuthCalls = () => {
         `${BASE_URL}account/auth/login/`,
         userInfo
       );
+      console.log(data);
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login performed");
       navigate("/stock");
     } catch (err) {
       dispatch(fetchFail());
+      console.log(err);
       toastErrorNotify("Login can not be performed");
     }
   };

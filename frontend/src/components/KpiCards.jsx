@@ -12,11 +12,22 @@ import { flexKpiCard } from "../styles/globalStyle";
 
 const KpiCards = () => {
   const { sales, purchases } = useSelector((state) => state.stock);
+  console.log(sales);
+  console.log(purchases);
 
   const total = (data) =>
     data
       ?.map((item) => Number(item?.price_total))
       .reduce((acc, val) => acc + val, 0);
+
+  const profit = (sales, purhases) => {
+    const filterDataId = sales?.map((item) => item.product_id);
+    const filterPurh = purchases?.filter((item) =>
+      filterDataId?.includes(item.product_id)
+    );
+    console.log(filterPurh);
+  };
+  profit(sales);
 
   const data = [
     {

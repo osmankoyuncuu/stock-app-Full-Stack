@@ -23,7 +23,6 @@ const PurchasesTable = ({
   setOpen,
 }) => {
   const { deleteStockData } = useStockCalls();
-
   return (
     <TableContainer component={Paper} sx={{ mt: 3 }} elevation={10}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -109,9 +108,7 @@ const PurchasesTable = ({
                 <TableCell align="center" component="th" scope="row">
                   {purchases?.createds}
                 </TableCell>
-                <TableCell align="center">
-                  {purchases?.category[0]?.name}
-                </TableCell>
+                <TableCell align="center">{purchases?.category}</TableCell>
                 <TableCell align="center">{purchases?.firm}</TableCell>
                 <TableCell align="center">{purchases?.brand}</TableCell>
                 <TableCell align="center">{purchases?.product}</TableCell>
