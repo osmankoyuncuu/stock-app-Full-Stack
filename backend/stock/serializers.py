@@ -22,6 +22,8 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField()
     brand = serializers.StringRelatedField()
+    brand_id = serializers.IntegerField()
+    category_id = serializers.IntegerField()
     class Meta:
         model = Product
         fields = (
@@ -118,6 +120,7 @@ class SalesSerializer(serializers.ModelSerializer):
     brand_id = serializers.IntegerField()
     time_hour = serializers.SerializerMethodField()
     createds = serializers.SerializerMethodField()
+    category = serializers.SerializerMethodField()
     
     class Meta:
         model = Sales
@@ -125,6 +128,7 @@ class SalesSerializer(serializers.ModelSerializer):
             "id",
             "user",
             "user_id",
+            "category",
             "brand",
             "brand_id",
             "product",
@@ -135,10 +139,13 @@ class SalesSerializer(serializers.ModelSerializer):
             "time_hour",
             "createds",
         )
+        
+    def get_category(self, obj):
+        return obj.product.category.name
             
     def get_time_hour(self, obj):
         return datetime.datetime.strftime(obj.createds, "%H:%M")
     
     def get_createds(self, obj):
-        return datetime.datetime.strftime(obj.createds, "%d,%m,%Y")
+        return datetime.datetime.strftime(obj.createds, "%d/%m/%Y")
     
